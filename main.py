@@ -1,5 +1,4 @@
 from src.utils import HhunterApi, create_database, delete_database, add_tables, res_vacanciya_to_db
-from src.config import config
 from src.DBmanager import DBManager
 
 
@@ -24,7 +23,6 @@ def creation_and_filling_DB():
         my_vac_list = HhunterApi().get_vacancies(20, key)
         my_vacancuya_list.append(my_vac_list)
 
-    my_employee_dict = []
     my_vacancuya_list_out = []
     for index, item in enumerate(my_vacancuya_list):
         my_vacancuya_dict_temp = []
@@ -51,12 +49,6 @@ def creation_and_filling_DB():
                my_dict['электронный адрес'] = 'Нет электронного адреса'
             else:
                my_dict['электронный адрес'] = item2['url']
-            # if 'url' in item2['url']:
-            #     my_dict['электронный адрес'] = item2['url']
-            # elif 'alternate_url' in item2['alternate_url']:
-            #     my_dict['электронный адрес'] = item2['alternate_url']
-            # else:
-            #     my_dict['электронный адрес'] = 'Нет электронного адреса'
 
             my_vacancuya_dict_temp.append(my_dict)
         my_vacancuya_list_out.append([employer_list[index], my_vacancuya_dict_temp])
@@ -93,4 +85,4 @@ if __name__ == "__main__":
     vacanc_cont = My_DBManager.get_vacancies_with_keyword()
     [print(index, x[0], ", ", x[1], ", ", x[2], ", ", x[3], ", ", x[4], ", ", x[5], ", ", x[6], ", ", x[7]) for index, x
      in enumerate(vacanc_cont)]
-    i = 0
+
