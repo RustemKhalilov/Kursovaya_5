@@ -60,7 +60,7 @@ def creation_and_filling_DB():
 
 
 if __name__ == "__main__":
-    #creation_and_filling_DB()
+    creation_and_filling_DB()
     My_DBManager = DBManager()
     vacanc_cont = My_DBManager.get_companies_and_vacancies_count()
     [print(index, x[0], x[1]) for index, x in enumerate(vacanc_cont)]
